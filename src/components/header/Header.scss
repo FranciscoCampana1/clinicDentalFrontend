@@ -1,0 +1,13 @@
+.Header {
+    text-align: center;
+    nav {
+        display: flex;
+        gap: 1em;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            gap: 1em;
+        }
+    }
+}
