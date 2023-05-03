@@ -11,9 +11,6 @@ export default function Header() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/courses">Courses</NavLink>
-          </li>
-          <li className="nav-item">
             <NavLink to="/about">About</NavLink>
           </li>
           <li className="nav-item">

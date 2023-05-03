@@ -9,9 +9,9 @@ export const updateAuthStoreStateLogin = (token) => {
   store.dispatch(setIsLoggedIn(true));
   store.dispatch(
     setUserInfo({
-      id: myDecodedToken.userId,
-      name: myDecodedToken.userName,
-      role: myDecodedToken.userRole,
+      id: myDecodedToken.usuario_id,//chequear si userId tiene que ser igual que en el backend
+      name: myDecodedToken.usuario_name,
+      role: myDecodedToken.usuario_role,
     })
   );
   store.dispatch(setToken(token));

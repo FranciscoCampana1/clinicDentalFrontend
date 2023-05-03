@@ -48,7 +48,7 @@ export default function Login() {
       updateAuthStoreStateLogin(token);
     } catch (error) {
       console.log(error);
-      setLoginError(error.response.data.message);
+      setLoginError(error.response.data.message);// preguntar en que sitio del backend localizo el msg de error
     }
   };
 
