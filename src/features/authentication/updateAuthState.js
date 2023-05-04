@@ -1,6 +1,6 @@
 import { decodeToken } from "react-jwt";
 import { store } from "../../app/store";
-import { setIsLoggedIn, setToken, setUserInfo } from "../users/authSlice";
+import { setIsLoggedIn, setToken, setUserInfo } from "./authSlice";
 
 export const updateAuthStoreStateLogin = (token) => {
   const myDecodedToken = decodeToken(token);
@@ -9,7 +9,7 @@ export const updateAuthStoreStateLogin = (token) => {
   store.dispatch(setIsLoggedIn(true));
   store.dispatch(
     setUserInfo({
-      id: myDecodedToken.usuario_id,//chequear si userId tiene que ser igual que en el backend
+      id: myDecodedToken.usuario_id, //chequear si userId tiene que ser igual que en el backend
       name: myDecodedToken.usuario_name,
       role: myDecodedToken.usuario_role,
     })
@@ -24,9 +24,8 @@ export const updateAuthStoreStateLogout = () => {
     setUserInfo({
       id: "",
       name: "",
-      role: ""
+      role: "",
     })
   );
-  store.dispatch(setToken(token));
+  store.dispatch(setToken(""));
 };
-

@@ -9,7 +9,9 @@ userService.getAllUsers = async (token) =>{
             Autorization: `Bearer${token}`
         },
     };
-    return (await axios.get(global.BASE_URL + "/usuarios", config)).data
+    return (await axios.get(global.BASE_URL + `/usuarios`, config)).data
 }
+ 
+  
 
 export default userService;

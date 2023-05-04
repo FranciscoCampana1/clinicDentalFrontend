@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import authService from "../../_services/authService";
 import tokenStorageService from "../../_services/tokenStorage";
-import {updateAuthStoreStateLogin} from "../users/updateAuthState";
+import { updateAuthStoreStateLogin } from "../../features/authentication/updateAuthState";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const initialFormValues = {
@@ -10,13 +12,21 @@ export default function Login() {
   };
 
   // HOOKS
+  const navigate = useNavigate();
+
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const [loginError, setLoginError] = useState(null);
 
+  const authState = useSelector((state) => state.auth);
+
+  const isAdmin = authState.userInfo.role == "admin";
+
   useEffect(() => {
-    //
-  }, []);
+    if (authState.userToken) {
+      isAdmin ? navigate("/admin") : navigate("/");
+    }
+  }, [authState.userToken]);
 
   // HANDLERS
   const handleSubmit = (e) => {
@@ -48,7 +58,7 @@ export default function Login() {
       updateAuthStoreStateLogin(token);
     } catch (error) {
       console.log(error);
-      setLoginError(error.response.data.message);// preguntar en que sitio del backend localizo el msg de error
+      setLoginError(error.response.data.message);
     }
   };
 
@@ -79,10 +89,6 @@ export default function Login() {
         <br />
         <button>Send</button>
       </form>
-
-      {/* <button onClick={() => {
-        updateAuthStoreStateLogout()
-      }}>Loguout</button> */}
       <br />
       {loginError && <p style={{ color: "red" }}>{loginError}</p>}
     </div>
