@@ -1,17 +1,17 @@
 import axios from "axios";
 import { global } from "../_global/global";
 
-const userService = {}
+const userService = {};
 
-userService.getAllUsers = async (token) =>{
+userService.getAllUsers = async (token, page = 1) => {
     const config = {
-        headers: {
-            Autorization: `Bearer ${token}`
-        },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     };
-    return (await axios.get(global.BASE_URL + `/usuarios`, config))
-    .data;}
- 
   
+    return (await axios.get(global.BASE_URL + `/usuarios?page=${page}`, config))
+      .data;
+  };
 
 export default userService;
