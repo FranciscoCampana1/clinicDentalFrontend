@@ -14,7 +14,7 @@ export default function UsersList({ users }) {
             <th>Last name</th>
             <th><BsFillEnvelopeFill/>Email</th>
             <th><BsFillCalendarWeekFill/> Birth day</th>
-            <th>Student</th>
+            <th>Patient</th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +24,10 @@ export default function UsersList({ users }) {
                 <td>{user.nombre}</td>
                 <td>{user.apellidos}</td>
                 <td> {user.email}</td>
-                <td>{user.fecha_de_nacimiento}</td>
+                <td>{dateFormat(user.fecha_de_nacimiento)}</td>
                 <td>{user?.paciente ? "YES" : "NO"}</td>
             </tr>
-          )  )}
+          )  )} 
         </tbody>
       </table>
     </div>
