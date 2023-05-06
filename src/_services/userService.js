@@ -9,9 +9,13 @@ userService.getAllUsers = async (token, page = 1) => {
         Authorization: `Bearer ${token}`,
       },
     };
-  
     return (await axios.get(global.BASE_URL + `/usuarios?page=${page}`, config))
       .data;
   };
+
+
+userService.getProfile = async (token) =>{
+    
+}
 
 export default userService;

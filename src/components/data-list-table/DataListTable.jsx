@@ -38,13 +38,6 @@ export default function DataListTable({
                      {attributes.map((attr, index) => (
                         <td key={index}>{d[attr]}</td>
                      ))}
-
-                     {/* <td>{user.id}</td>
-                     <td>{user.nombre}</td>
-                     <td>{user.apellidos}</td>
-                     <td>{user.email}</td>
-                     <td>{dateFormat(user.fecha_nacimiento)}</td>
-                     <td>{user?.alumno ? "YES" : "NO"}</td> */}
                   </tr>
                ))}
             </tbody>
