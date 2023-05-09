@@ -3,10 +3,11 @@ import authService from "../../_services/authService";
 import { updateAuthStoreStateLogin } from "../../features/authentication/updateAuthState";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import validator from "validator";
 
 export default function Login() {
    const initialFormValues = {
-      email: "juana@juana.com",
+      email: "alice@alice.com",
       password: "12345678",
    };
 
@@ -26,15 +27,25 @@ export default function Login() {
 
    // handlers
    const handleSubmit = (e) => {
-      e.preventDefault();
-
-      const credentials = {
-         email: formValues.email,
-         password: formValues.password,
-      };
-
+    e.preventDefault();
+    const credentials = {
+      email: formValues.email,
+      password: formValues.password,
+    };
+    // login(credentials);
+    if (
+      validator.isEmail(credentials.email) &&
+      validator.isByteLength(credentials.password, { min: 8, max: undefined })
+    ) {
       login(credentials);
-   };
+    } else if (!validator.isEmail(credentials.email)) {
+      setLoginError("Debes introducir un correo real");
+    } else if (
+      !validator.isByteLength(credentials.password, { min: 8, max: undefined })
+    ) {
+      setLoginError("La contraseña debe contener mínimo 8 caracteres");
+    }
+  };
 
    const handleChange = (e) => {
       const { name, value } = e.target;

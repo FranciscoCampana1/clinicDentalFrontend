@@ -32,33 +32,44 @@ export default function Header() {
     <div className="Header">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand className="nav-link" to="/">Home</Navbar.Brand>
+          <Navbar.Brand className="nav-link" to="/">
+            Home
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <NavLink className="nav-link" to="/citas">Citas</NavLink>
-              <NavLink className="nav-link" to="about">Acerca de</NavLink>
-              {isAdmin && <NavLink className="nav-link" to="/admin">Admin</NavLink>}
+              {isLoggedIn && !isAdmin && (
+                <NavLink className="nav-link" to="/citas">
+                  Citas
+                </NavLink>
+              )}
+              <NavLink className="nav-link" to="about">
+                Acerca de
+              </NavLink>
+              {isAdmin && (
+                <NavLink className="nav-link" to="/admin">
+                  Admin
+                </NavLink>
+              )}
             </Nav>
             {!isLoggedIn && (
               <Nav>
                 <NavLink className="nav-link" to="/login">
                   <MdOutlineLogin /> Iniciar sesion
                 </NavLink>
-                <NavLink className="nav-link" to="/register">Registrarse</NavLink>
+                <NavLink className="nav-link" to="/register">
+                  Registrarse
+                </NavLink>
               </Nav>
             )}
             {isLoggedIn && (
               <Nav>
                 <NavDropdown title={name} id="collasible-nav-dropdown">
-                  <NavDropdown.Item  href="/profile">
+                  <NavDropdown.Item href="/profile">
                     <MdPersonOutline /> Perfil
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    {" "}
-                    <a onClick={handleLogout}>
-                      <MdOutlineLogout /> Cerrar sesión
-                    </a>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    <MdOutlineLogout /> Cerrar sesión
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>

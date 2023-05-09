@@ -15,7 +15,13 @@ userService.getAllUsers = async (token, page = 1) => {
 
 
 userService.getProfile = async (token) =>{
-    
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  return (await axios.get(global.BASE_URL + `/usuarios/getprofile`, config))
+    .data;
 }
 
 export default userService;

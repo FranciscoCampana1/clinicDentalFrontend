@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import userService from "../../_services/userService";
 import { DataListTable, UsersList } from "../../components";
 import { dateFormat } from "../../_util/date";
+import './Admin.scss'
 
 export default function Admin() {
    //hooks
@@ -26,24 +27,27 @@ export default function Admin() {
    }, [usersPage]);
 
    const handleUsersList = (e) => {
-      const { page, userId } = e.currentTarget.dataset;
+      const { page, dataId } = e.currentTarget.dataset;
       handleUsersListPagination(page);
-      handleSingleUser(userId);
+      handleSingleUser(dataId);
    };
 
    const handleUsersListPagination = (page) => {
-      console.log(page);
       switch (page) {
          case "next":
             return setUsersPage((page) => page + 1);
          case "prev":
             return setUsersPage((page) => page - 1);
+         case "first":
+               return setUsersPage( 1);
+          case "last":
+               return setUsersPage( usersPages )
       }
    };
 
-   const handleSingleUser = (userId) => {
+   const handleSingleUser = (dataId) => {
       //
-      console.log(userId);
+      console.log(dataId);
    };
 
    const getAllUsers = async (token, page) => {
@@ -57,17 +61,17 @@ export default function Admin() {
       }
    };
       //esta funcion es para aplanar el array y que react pueda pintarlo.
-   const newUsers = (users) =>
-      users.map((user) => {
-         user.fecha_de_nacimiento = dateFormat(user.fecha_de_nacimiento);
-         return user;
-      });
+   // const newUsers = (users) =>
+   //    users.map((user) => {
+   //       user.fecha_de_nacimiento = dateFormat(user.fecha_de_nacimiento);
+   //       return user;
+   //    });
 
    return (
-      <>
+      <div className="container admin">
          {isAdmin && (
             <>
-               <h1>Admin panel</h1>
+               <h1 style={{textAlign: "center", marginBottom: "1em"}}>Admin panel</h1>
                <DataListTable
                   data={users}
                   title="Users"
@@ -95,6 +99,6 @@ export default function Admin() {
                />
             </>
          )}
-      </>
+      </div>
    );
 }
