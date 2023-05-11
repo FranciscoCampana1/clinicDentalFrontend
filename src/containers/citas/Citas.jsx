@@ -7,9 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function citas() {
   const [cita, setCita] = useState([]);
-  // const [isOdontologoIdCita, setIsOdontologoIdCita] = useState([])
-  // const [dataTableIdHeader, setDataTableIdHeader] = useState("")
-  // const [dataTableIdAtt, setDataTableIdAtt] = useState("")
   const navigate = useNavigate();
   const authState = useSelector((state) => state.auth);
   const isLoggedIn = authState.isLoggedIn;
@@ -20,12 +17,8 @@ export default function citas() {
   useEffect(() => {
     if (isLoggedIn && isPatient) {
       getCitasPaciente(authState.userToken);
-      // setDataTableIdHeader("ID odontologo")
-      // setDataTableIdAtt("id_odontologo")
     } else if (isLoggedIn && isOdontologo) {
       getCitasOdontologos(authState.userToken);
-      // setDataTableIdHeader("ID paciente")
-      // setDataTableIdAtt("id_paciente")
     } else {
       navigate("");
     }

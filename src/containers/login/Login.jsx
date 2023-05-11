@@ -7,8 +7,8 @@ import validator from "validator";
 
 export default function Login() {
    const initialFormValues = {
-      email: "alice@alice.com",
-      password: "12345678",
+      email: "campanafrancisco1@gmail.com",
+      password: "Francisco1",
    };
 
    // hooks

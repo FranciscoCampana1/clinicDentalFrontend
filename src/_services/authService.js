@@ -12,4 +12,22 @@ authService.login = async (credentials) => {
   return (await axios.post(global.BASE_URL + "/auth/login", body)).data;
 };
 
+authService.registerUser = async (userData) => {
+
+  const body = {
+    nombre: userData.nombre,
+    apellidos: userData.apellidos,
+    edad: userData.edad,
+    email: userData.email,
+    fecha_de_nacimiento: userData.fecha_de_nacimiento,
+    telefono: userData.telefono,
+    password: userData.password,
+  };
+
+
+  return (await axios.post(global.BASE_URL + `/auth/register/`, body))
+    .data;
+}
+
+
 export default authService
