@@ -24,4 +24,28 @@ userService.getProfile = async (token) =>{
     .data;
 }
 
+userService.updateProfile = async (token, userData) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const body = {
+    nombre: userData.nombre,
+    apellidos: userData.apellidos,
+    edad: userData.edad,
+    email: userData.email,
+    fecha_de_nacimiento: userData.fecha_de_nacimiento,
+    telefono: userData.telefono,
+    password: userData.password,
+  };
+
+
+  return (await axios.put(global.BASE_URL + `/usuarios/updateprofile`, body, config))
+    .data;
+}
+
+
+
 export default userService;
