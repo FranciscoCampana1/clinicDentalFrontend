@@ -8,13 +8,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export default function citas() {
-  const [cita, setCita] = useState([]);
-  const [idCita, setIdCita] = useState();
-  const navigate = useNavigate();
+
+  //hooks
+
   const authState = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const isLoggedIn = authState.isLoggedIn;
   const isOdontologo = authState.userInfo.role == "odontologo";
   const isPatient = authState.userInfo.role == "user";
+  const [cita, setCita] = useState([]);
+  const [idCita, setIdCita] = useState();
   const [formValues, setFormValues] = useState({});
   const [formCreateCita, setCreateCita] = useState(false);
   const [formUpdateCita, setFormUpdateCita] = useState(false);
@@ -30,11 +33,15 @@ export default function citas() {
     }
   }, []);
 
+  
+
   const handleCitas = (e) => {
     const { dataId } = e.currentTarget.dataset;
     console.log(dataId);
   };
 
+  //handler para escuchar cambio en inputs
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -55,19 +62,29 @@ export default function citas() {
     console.log(idCita);
   };
 
+  //handlers que cambian el valor para pintar y ocultar formularios
+
   const handleFormUpdateCita = () => {
     setFormUpdateCita(true);
+    setCreateCita(false);
+    setFormDeleteCita(false);
   };
 
   const handleFormDeleteCita = () => {
     setFormDeleteCita(true);
+    setCreateCita(false);
+    setFormUpdateCita(false);
   };
 
   const handleFormCreateCita = () => {
     setCreateCita(true)
+    setFormUpdateCita(false)
+    setFormDeleteCita(false)
   }
 
-  const handleSubmit = () => {
+  //Handlers que llaman a la funcion para ejecutar la peticion
+
+  const handleSubmitUpdate = () => {
     updateCita(authState.userToken, formValues, idCita);
   };
 
@@ -78,6 +95,8 @@ export default function citas() {
   const handleSubmitDelete = () => {
     deleteCita(authState.userToken, idCita);
   };
+
+  //funciones que llaman al servicio
 
   const getCitasOdontologos = async (token) => {
     try {
@@ -147,7 +166,7 @@ export default function citas() {
         {formUpdateCita && (
           <div className="">
             <div className="form-citas">
-              <Form onSubmit={handleSubmit} className="padreBtn">
+              <Form onSubmit={handleSubmitUpdate} className="padreBtn">
                 <pre
                   style={{ textAlign: "left", width: "250px", margin: "auto" }}
                 >
