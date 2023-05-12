@@ -24,7 +24,7 @@ userService.getProfile = async (token) =>{
     .data;
 }
 
-userService.updateProfile = async (token, userData) => {
+userService.updateProfile = async (token, data) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -32,13 +32,13 @@ userService.updateProfile = async (token, userData) => {
   };
 
   const body = {
-    nombre: userData.nombre,
-    apellidos: userData.apellidos,
-    edad: userData.edad,
-    email: userData.email,
-    fecha_de_nacimiento: userData.fecha_de_nacimiento,
-    telefono: userData.telefono,
-    password: userData.password,
+    nombre: data.nombre,
+    apellidos: data.apellidos,
+    edad: data.edad,
+    email: data.email,
+    fecha_de_nacimiento: data.fecha_de_nacimiento,
+    telefono: data.telefono,
+    password: data.password,
   };
 
 

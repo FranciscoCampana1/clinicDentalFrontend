@@ -3,6 +3,7 @@ import { global } from "../_global/global";
 
 const authService = {};
 
+//Login de usuarios
 authService.login = async (credentials) => {
   const body = {
     email: credentials.email,
@@ -12,16 +13,17 @@ authService.login = async (credentials) => {
   return (await axios.post(global.BASE_URL + "/auth/login", body)).data;
 };
 
-authService.registerUser = async (userData) => {
+//registro de usuarios
+authService.registerUser = async (data) => {
 
   const body = {
-    nombre: userData.nombre,
-    apellidos: userData.apellidos,
-    edad: userData.edad,
-    email: userData.email,
-    fecha_de_nacimiento: userData.fecha_de_nacimiento,
-    telefono: userData.telefono,
-    password: userData.password,
+    nombre: data.nombre,
+    apellidos: data.apellidos,
+    edad: data.edad,
+    email: data.email,
+    fecha_de_nacimiento: data.fecha_de_nacimiento,
+    telefono: data.telefono,
+    password: data.password,
   };
 
 
