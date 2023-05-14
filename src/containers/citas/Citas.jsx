@@ -167,11 +167,6 @@ export default function citas() {
           <div className="">
             <div className="form-citas">
               <Form onSubmit={handleSubmitUpdate} className="padreBtn">
-                <pre
-                  style={{ textAlign: "left", width: "250px", margin: "auto" }}
-                >
-                  {JSON.stringify(formValues, null, 2)}
-                </pre>
                 <Form.Group className="mb-3  rounded p-4 inputForm">
                   <Form.Label></Form.Label>
                   <Form.Label>Identificador de cita</Form.Label>
@@ -213,11 +208,6 @@ export default function citas() {
           <div className="">
             <div className="form-citas">
               <Form onSubmit={handleSubmitDelete} className="padreBtn">
-                <pre
-                  style={{ textAlign: "left", width: "250px", margin: "auto" }}
-                >
-                  {JSON.stringify(formValues, null, 2)}
-                </pre>
                 <Form.Group className="mb-3  rounded p-4 inputForm">
                   <Form.Label></Form.Label>
                   <Form.Label>Identificador de cita</Form.Label>
@@ -243,11 +233,6 @@ export default function citas() {
           <div className="">
             <div className="form-citas">
               <Form onSubmit={handleSubmitCreate} className="padreBtn">
-                <pre
-                  style={{ textAlign: "left", width: "250px", margin: "auto" }}
-                >
-                  {JSON.stringify(formValues, null, 2)}
-                </pre>
                 <Form.Group className="mb-3  rounded p-4 inputForm">
                   <Form.Label>id_odontologo</Form.Label>
                   <Form.Control
