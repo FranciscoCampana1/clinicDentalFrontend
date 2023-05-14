@@ -20,7 +20,11 @@ export default function Register() {
     registerUser(formValues);
   };
   const registerUser = async (body) => {
-    const response = await authService.registerUser(body);
+    try {
+      const response = await authService.registerUser(body);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
