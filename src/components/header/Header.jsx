@@ -32,9 +32,9 @@ export default function Header() {
     <div className="Header">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand className="nav-link" to="/">
-            Home
-          </Navbar.Brand>
+          <NavLink className="nav-link text-white" to="/">
+            <img src="" alt="imagen-logo" width="50px" />
+          </NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
