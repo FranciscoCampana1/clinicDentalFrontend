@@ -17,6 +17,7 @@ export default function Admin() {
   const [usersCount, setUsersCount] = useState(0);
   const [formValues, setFormValues] = useState({});
   const [formRegisterOdontologo, setFormRegisterOdontologo] = useState(false);
+  const [showTableAdmin, setShowTableAdmin] = useState(true)
 
   const isAdmin = authState.userInfo.role == "admin";
 
@@ -60,11 +61,12 @@ export default function Admin() {
   };
 
   const handleSubmit = () => {
-   createProfileOdontologo(authState.userToken ,formValues);
- };
+    createProfileOdontologo(authState.userToken, formValues);
+  };
 
   const handleRegisterOdontologo = () => {
     setFormRegisterOdontologo(true);
+    setShowTableAdmin(false)
   };
 
   const getAllUsers = async (token, page) => {
@@ -78,13 +80,13 @@ export default function Admin() {
     }
   };
 
-  const createProfileOdontologo = async (token, data) =>{
-   try {
-      const response = await userService.createProfileOdontologo(token, data)
-   } catch (error) {
-      console.log(error)
-   }
-  }
+  const createProfileOdontologo = async (token, data) => {
+    try {
+      const response = await userService.createProfileOdontologo(token, data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //esta funcion es para aplanar el array y que react pueda pintarlo.
   // const newUsers = (users) =>
@@ -95,8 +97,8 @@ export default function Admin() {
 
   return (
     <>
-      <div className="container admin">
-        {isAdmin && (
+      <div className=" admin">
+        {isAdmin && showTableAdmin &&(
           <>
             <h1 style={{ textAlign: "center", marginBottom: "1em" }}>
               Admin panel
@@ -120,17 +122,18 @@ export default function Admin() {
               }}
               onChange={handleUsersList}
             />
+            <div>
+              <button type="submit" onClick={handleRegisterOdontologo}>
+                {" "}
+                Registrar Personal{" "}
+              </button>
+            </div>
           </>
         )}
         {formRegisterOdontologo && (
           <div className="perfil-formulario">
             <div className="formulario">
               <Form onSubmit={handleSubmit} className="padreBtn">
-                <pre
-                  style={{ textAlign: "left", width: "250px", margin: "auto" }}
-                >
-                  {JSON.stringify(formValues, null, 2)}
-                </pre>
                 <Form.Group className="mb-3  rounded p-4 inputForm">
                   <Form.Label>Nombre</Form.Label>
                   <Form.Control
@@ -194,18 +197,12 @@ export default function Admin() {
                   type="submit"
                   className="buttonUpdate"
                 >
-                  Crear perfil
+                  Crear perfil 
                 </Button>
               </Form>
             </div>
           </div>
         )}
-      </div>
-      <div>
-        <button type="submit" onClick={handleRegisterOdontologo}>
-          {" "}
-          Registrar Personal{" "}
-        </button>
       </div>
     </>
   );

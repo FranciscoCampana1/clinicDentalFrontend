@@ -1,0 +1,26 @@
+.contenedor-login{
+    background-image: url(../../../images/img-consultorio.png);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4em;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input{
+        border-radius: 5px 5px;
+    }
+
+    .button{
+        background-color: rgb(8, 136, 255);
+        color: white;
+    }
+}
+

@@ -28,12 +28,9 @@ export default function Register() {
   };
 
   return (
-    <div className="perfil-formulario">
-      <div className="formulario">
+    <>
+      <div className="contenedor-perfil">
         <Form onSubmit={handleSubmit} className="padreBtn">
-        <pre style={{ textAlign: "left", width: "250px", margin: "auto" }}>
-            {JSON.stringify(formValues, null, 2)}
-         </pre>
           <Form.Group className="mb-3  rounded p-4 inputForm">
             <Form.Label>Nombre</Form.Label>
             <Form.Control
@@ -89,6 +86,6 @@ export default function Register() {
           </Button>
         </Form>
       </div>
-    </div>
+    </>
   );
 }

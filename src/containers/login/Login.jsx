@@ -4,16 +4,14 @@ import { updateAuthStoreStateLogin } from "../../features/authentication/updateA
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
+import './Login.scss'
 
 export default function Login() {
-   const initialFormValues = {
-      email: "campanafrancisco1@gmail.com",
-      password: "Francisco1",
-   };
+   
 
    // hooks
    const navigate = useNavigate();
-   const [formValues, setFormValues] = useState(initialFormValues);
+   const [formValues, setFormValues] = useState({});
    const [loginError, setLoginError] = useState(null);
    const authState = useSelector((state) => state.auth);
 
@@ -69,11 +67,8 @@ export default function Login() {
    };
 
    return (
-      <div>
+      <div className="contenedor-login">
          <h1>Login</h1>
-         <pre style={{ textAlign: "left", width: "250px", margin: "auto" }}>
-            {JSON.stringify(formValues, null, 2)}
-         </pre>
          <form noValidate onSubmit={handleSubmit}>
             <label htmlFor="">Email</label> <br />
             <input
@@ -92,16 +87,8 @@ export default function Login() {
             />{" "}
             <br />
             <br />
-            <button>Send</button>
+            <button className="button">Send</button>
          </form>
-
-         {/* <button
-            onClick={() => {
-               updateAuthStoreStateLogout();
-            }}
-         >
-            Logout
-         </button> */}
          <br />
          {loginError && <p style={{ color: "red" }}>{loginError}</p>}
       </div>
