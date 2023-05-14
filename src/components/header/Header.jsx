@@ -33,7 +33,7 @@ export default function Header() {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <NavLink className="nav-link text-white" to="/">
-            <img src="" alt="imagen-logo" width="50px" />
+            <img src="../../../images/logo-all-smiles.jpg" alt="imagen-logo"  className="logo" />
           </NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -44,7 +44,7 @@ export default function Header() {
                 </NavLink>
               )}
               <NavLink className="nav-link" to="about">
-                Acerca de
+                Quienes somos?
               </NavLink>
               {isAdmin && (
                 <NavLink className="nav-link" to="/admin">

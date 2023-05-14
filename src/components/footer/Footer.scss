@@ -1,0 +1,23 @@
+.contenedor-footer{
+    height: 15em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212529;
+    color: aliceblue;
+
+    a{
+        color: aliceblue;
+    }
+}
+
+.contenedor-redes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedor-urgencias{
+    margin-right: 2em;
+}
