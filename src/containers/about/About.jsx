@@ -9,11 +9,9 @@ export default function About() {
       </div>
       <div className="texto-nosotros">
         <h4>
-          Un espacio abierto, con un mobiliario confortable y una iluminación e
-          interiorismo diseñado para tu total comodidad. 
-          Recepción: Nuestro
-          servicio de recepción te procurará todas las atenciones para que se
-          sienta como en casa.</h4><h4> Gabinetes:  Contamos con gabinetes dentales
+          Somos una Clínica situada en el corazón de Barcelona, en nuestro establecimiento cuenta con: 
+          servicio de recepción que te procurará todas las atenciones para que se
+          sienta como en casa.</h4><h4>  Nuestros gabinetes dentales
           amplios, modernos y equipados con la última tecnología, para obtener
           la mayor precisión en el diagnóstico y el tratamiento.</h4> <h4> Quirófano: 
           Disponemos de un gabinete quirúrgico en el que podemos realizar
@@ -22,10 +20,7 @@ export default function About() {
           general. </h4>
           <h4>Radiología: La clínica Bergés Nieto es una de las pocas
           clínicas dentales de Sant Feliu de Llobregat con equipo de TAC 3D para
-          el diagnóstico y tratamientos más seguros para sus pacientes. Una
-          moderna herramienta de trabajo que obtiene imágenes de última
-          generación con una excelente resolución y con bajas dosis de radiación
-          para el paciente.
+          el diagnóstico y tratamientos más seguros para sus pacientes.
         </h4>
       </div>
     </div>
