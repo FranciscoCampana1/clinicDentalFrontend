@@ -8,7 +8,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export default function citas() {
-
   //hooks
 
   const authState = useSelector((state) => state.auth);
@@ -33,15 +32,13 @@ export default function citas() {
     }
   }, []);
 
-  
-
   const handleCitas = (e) => {
     const { dataId } = e.currentTarget.dataset;
     console.log(dataId);
   };
 
   //handler para escuchar cambio en inputs
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -77,10 +74,10 @@ export default function citas() {
   };
 
   const handleFormCreateCita = () => {
-    setCreateCita(true)
-    setFormUpdateCita(false)
-    setFormDeleteCita(false)
-  }
+    setCreateCita(true);
+    setFormUpdateCita(false);
+    setFormDeleteCita(false);
+  };
 
   //Handlers que llaman a la funcion para ejecutar la peticion
 
@@ -89,8 +86,8 @@ export default function citas() {
   };
 
   const handleSubmitCreate = () => {
-    createCita(authState.userToken, formValues)
-  }
+    createCita(authState.userToken, formValues);
+  };
 
   const handleSubmitDelete = () => {
     deleteCita(authState.userToken, idCita);
@@ -153,15 +150,35 @@ export default function citas() {
           />
         )}
 
-        {isPatient && (
-          <DataListTable
-            data={cita}
-            title="Tus citas"
-            headers={["ID cita", "ID odontologo", "Fecha", "Hora"]}
-            attributes={["id", "id_odontologo", "fecha", "horario"]}
-            onChange={handleCitas}
-          />
-        )}
+        {isPatient &&
+          ((
+            <DataListTable
+              data={cita}
+              title="Tus citas"
+              headers={["ID cita", "ID odontologo", "Fecha", "Hora"]}
+              attributes={["id", "id_odontologo", "fecha", "horario"]}
+              onChange={handleCitas}
+            />
+          ),
+          (
+            <div className="contenedor-botones">
+              <div>
+                <button type="submit" onClick={handleFormCreateCita}>
+                  Crear cita
+                </button>
+              </div>
+              <div>
+                <button type="submit" onClick={handleFormUpdateCita}>
+                  Modificar cita
+                </button>
+              </div>
+              <div>
+                <button type="submit" onClick={handleFormDeleteCita}>
+                  Eliminar Cita
+                </button>
+              </div>
+            </div>
+          ))}
 
         {formUpdateCita && (
           <div className="">
@@ -271,24 +288,6 @@ export default function citas() {
             </div>
           </div>
         )}
-
-        <div className="contenedor-botones">
-          <div>
-            <button type="submit" onClick={handleFormCreateCita}>
-              Crear cita
-            </button>
-          </div>
-          <div>
-            <button type="submit" onClick={handleFormUpdateCita}>
-              Modificar cita
-            </button>
-          </div>
-          <div>
-            <button type="submit" onClick={handleFormDeleteCita}>
-              Eliminar Cita
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );

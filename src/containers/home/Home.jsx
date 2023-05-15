@@ -10,8 +10,8 @@ export default function Home() {
       </div>
       <div>
         <div>
-          <Carousel>
-            <Carousel.Item>
+          <Carousel className="caroussel">
+            <Carousel.Item >
               <img
                 className="d-block w-100"
                 src="../../../images/imagen-carousseel-1.jpg"

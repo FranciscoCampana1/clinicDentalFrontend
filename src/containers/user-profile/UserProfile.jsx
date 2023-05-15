@@ -160,14 +160,6 @@ export default function UserProfile() {
                     value={formValues.fecha_de_nacimiento}
                     onChange={handleChange}
                   />
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Email "
-                    name="email"
-                    value={formValues.email}
-                    onChange={handleChange}
-                  />
                   <Form.Label>Telefono</Form.Label>
                   <Form.Control
                     type="text"
