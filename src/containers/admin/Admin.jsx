@@ -100,7 +100,7 @@ export default function Admin() {
       <div className=" admin">
         {isAdmin && showTableAdmin &&(
           <>
-            <h1 style={{ textAlign: "center", marginBottom: "1em" }}>
+            <h1 style={{ textAlign: "center"}}>
               Admin panel
             </h1>
             <DataListTable

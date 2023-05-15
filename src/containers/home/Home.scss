@@ -1,18 +1,50 @@
 .contenedor-home{
-    padding-top: 2em;
+    padding-top: 1em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #212529b7;
+    background-color: #21252945;
     
 }
 
 .caroussel{
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    width: 60vw;
+}
+
+.contenedor-title{
+    font-size: 1em;
+    
 }
 
 
+@media(max-width:600px){
+    .contenedor-title{
+        font-size: 0.8em ;
+    }
 
-    iframe{
-        display: none;
+    .caroussel{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100vw;
+        padding-top: 0.5em;
+    }
+    .contenedor-home{
+        padding-top: 0.5em;
+    }
+}
+
+@media(max-width:900px){
+    .contenedor-title{
+        font-size: 1.2em;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+    .caroussel{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100vw;
+        
     }
 }

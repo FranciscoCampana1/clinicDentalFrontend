@@ -67,7 +67,7 @@ export default function UserProfile() {
                 <MDBCard>
                   <div
                     className="rounded-top text-white d-flex flex-row"
-                    style={{ backgroundColor: "#000", height: "200px" }}
+                    style={{ backgroundColor: "#000", height: "215px" }}
                   >
                     <div
                       className="ms-4 mt-5 d-flex flex-column"
@@ -80,7 +80,7 @@ export default function UserProfile() {
                         fluid
                         style={{ width: "150px", zIndex: "1" }}
                       />
-                      <div style={{ marginTop: "1.5em" }}>
+                      <div style={{ marginTop: "3em" }}>
                         <MDBBtn
                           outline
                           color="dark"

@@ -18,10 +18,7 @@ export default function DataListTable({
         <thead>
           <tr colSpan={headers.length}>
             <th>
-              <div className="tableTitle">
-                {" "}
-                {title}
-              </div>
+              <div className="tableTitle"> {title}</div>
             </th>
           </tr>
           <tr>
@@ -33,9 +30,11 @@ export default function DataListTable({
 
         <tbody>
           {data.map((d) => (
-            <tr data-data-id={d.id} onClick={onChange} key={d.id}>
+            <tr scope="row" data-data-id={d.id} onClick={onChange} key={d.id}>
               {attributes.map((attr, index) => (
-                <td key={index}>{d[attr]}</td>
+                <td data-label={headers[index]} key={index}>
+                  {d[attr] ? d[attr] : "No definido"}
+                </td>
               ))}
             </tr>
           ))}

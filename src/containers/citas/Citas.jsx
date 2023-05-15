@@ -150,35 +150,38 @@ export default function citas() {
           />
         )}
 
-        {isPatient &&
-          ((
-            <DataListTable
-              data={cita}
-              title="Tus citas"
-              headers={["ID cita", "ID odontologo", "Fecha", "Hora"]}
-              attributes={["id", "id_odontologo", "fecha", "horario"]}
-              onChange={handleCitas}
-            />
-          ),
-          (
-            <div className="contenedor-botones">
-              <div>
-                <button type="submit" onClick={handleFormCreateCita}>
-                  Crear cita
-                </button>
+        {isPatient && (
+          <>
+            
+              <DataListTable
+                data={cita}
+                title="Tus citas"
+                headers={["ID cita", "ID odontologo", "Fecha", "Hora"]}
+                attributes={["id", "id_odontologo", "fecha", "horario"]}
+                onChange={handleCitas}
+              />
+            
+            
+              <div className="contenedor-botones">
+                <div>
+                  <button type="submit" onClick={handleFormCreateCita}>
+                    Crear cita
+                  </button>
+                </div>
+                <div>
+                  <button type="submit" onClick={handleFormUpdateCita}>
+                    Modificar cita
+                  </button>
+                </div>
+                <div>
+                  <button type="submit" onClick={handleFormDeleteCita}>
+                    Eliminar Cita
+                  </button>
+                </div>
               </div>
-              <div>
-                <button type="submit" onClick={handleFormUpdateCita}>
-                  Modificar cita
-                </button>
-              </div>
-              <div>
-                <button type="submit" onClick={handleFormDeleteCita}>
-                  Eliminar Cita
-                </button>
-              </div>
-            </div>
-          ))}
+            
+          </>
+        )}
 
         {formUpdateCita && (
           <div className="">
