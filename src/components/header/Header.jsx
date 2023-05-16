@@ -43,9 +43,6 @@ export default function Header() {
                   Citas
                 </NavLink>
               )}
-              <NavLink className="nav-link" to="about">
-                Quienes somos?
-              </NavLink>
               {isAdmin && (
                 <NavLink className="nav-link" to="/admin">
                   Admin

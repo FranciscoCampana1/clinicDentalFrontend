@@ -22,18 +22,19 @@
     margin-right: 2em;
 }
 
-@media(max-width : 600px){
-    .contenedor-footer{
-        height: 15em;
-    }
-    iframe{
-     display: none;
-    }
-}
 
 @media(max-width:900px){
     .contenedor-footer{
         height: 25em;
     }
     
+}
+
+@media(max-width : 600px){
+    .contenedor-footer{
+        height: 20em;
+    }
+    iframe{
+     display: none;
+    }
 }

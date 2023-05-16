@@ -13,32 +13,19 @@
 
 .contenedor-title{
     font-size: 1em;
+  
     
 }
 
 
-@media(max-width:600px){
-    .contenedor-title{
-        font-size: 0.8em ;
-    }
 
-    .caroussel{
-        margin-left: 0;
-        margin-right: 0;
-        width: 100vw;
-        padding-top: 0.5em;
-    }
-    .contenedor-home{
-        padding-top: 0.5em;
-    }
-}
 
 @media(max-width:900px){
     .contenedor-title{
         font-size: 1.2em;
-        margin-top: 2em;
-        margin-bottom: 2em;
-        padding-bottom: 1em;
+        // margin-top: 2em;
+        // margin-bottom: 2em;
+        padding-bottom: 2em;
         padding-top: 1em;
     }
     .caroussel{
@@ -46,5 +33,25 @@
         margin-right: 0;
         width: 100vw;
         
+    }
+}
+@media(max-width:600px){
+    .contenedor-title{
+        padding-bottom: 0;
+        h1{
+            font-size: 1.6em;
+            padding: 1em;
+        }
+    }
+    
+    .caroussel{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100vw;
+        padding-top: 1.5em;
+    }
+    .contenedor-home{
+        padding: 0;
+        margin-top: 0;
     }
 }

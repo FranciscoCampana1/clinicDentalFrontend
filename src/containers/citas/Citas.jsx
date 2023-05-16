@@ -71,12 +71,14 @@ export default function citas() {
     setFormDeleteCita(true);
     setCreateCita(false);
     setFormUpdateCita(false);
+
   };
 
   const handleFormCreateCita = () => {
     setCreateCita(true);
     setFormUpdateCita(false);
     setFormDeleteCita(false);
+
   };
 
   //Handlers que llaman a la funcion para ejecutar la peticion
@@ -138,7 +140,7 @@ export default function citas() {
   };
 
   return (
-    <div className="contenedor-citas">
+    <div className=" contenedor-citas">
       <div className="container page-and-buttons">
         {isOdontologo && (
           <DataListTable
@@ -151,7 +153,7 @@ export default function citas() {
         )}
 
         {isPatient && (
-          <>
+          <div className="container">
             
               <DataListTable
                 data={cita}
@@ -180,11 +182,11 @@ export default function citas() {
                 </div>
               </div>
             
-          </>
+          </div>
         )}
 
         {formUpdateCita && (
-          <div className="">
+          <div className="container">
             <div className="form-citas">
               <Form onSubmit={handleSubmitUpdate} className="padreBtn">
                 <Form.Group className="mb-3  rounded p-4 inputForm">
@@ -225,7 +227,7 @@ export default function citas() {
           </div>
         )}
         {formDeleteCita && (
-          <div className="">
+          <div className="container">
             <div className="form-citas">
               <Form onSubmit={handleSubmitDelete} className="padreBtn">
                 <Form.Group className="mb-3  rounded p-4 inputForm">
@@ -250,7 +252,7 @@ export default function citas() {
           </div>
         )}
         {formCreateCita && (
-          <div className="">
+          <div className="container">
             <div className="form-citas">
               <Form onSubmit={handleSubmitCreate} className="padreBtn">
                 <Form.Group className="mb-3  rounded p-4 inputForm">
