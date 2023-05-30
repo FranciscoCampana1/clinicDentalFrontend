@@ -3,11 +3,11 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import authService from "../../_services/authService";
 import Button from "react-bootstrap/Button";
-
-
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [formValues, setFormValues] = useState({});
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,21 +16,26 @@ export default function Register() {
       [name]: value, // key: value
     });
   };
-  const handleSubmit = () => {
+  
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
     registerUser(formValues);
+    navigate('/login')
   };
+
   const registerUser = async (body) => {
     try {
       const response = await authService.registerUser(body);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   return (
     <>
       <div className="contenedor-perfil">
-        <Form onSubmit={handleSubmit} className="padreBtn">
+        <Form noValidate onSubmit={handleSubmit} className="padreBtn">
           <Form.Group className="mb-3  rounded p-4 inputForm">
             <Form.Label>Nombre</Form.Label>
             <Form.Control

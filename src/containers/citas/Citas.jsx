@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { FormGroup } from "react-bootstrap";
 
 export default function citas() {
   //hooks
@@ -207,13 +208,29 @@ export default function citas() {
                     onChange={handleChange}
                   />
                   <Form.Label>Horario </Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="10:00:00 "
+                  <FormGroup>
+                    <Form.Check
+                    type={"radio"}
                     name="horario"
-                    value={formValues.horario}
+                    value="10:00:00"
                     onChange={handleChange}
-                  />
+                    label={`10:00`}
+                    />
+                    <Form.Check
+                    type={"radio"}
+                    name="horario"
+                    value="11:00:00"
+                    onChange={handleChange}
+                    label={`11:00`}
+                    />
+                    <Form.Check
+                    type={"radio"}
+                    name="horario"
+                    value="12:00:00"
+                    onChange={handleChange}
+                    label={`12:00`}
+                    />
+                  </FormGroup>
                 </Form.Group>
                 <Button
                   variant="primary"
@@ -257,13 +274,30 @@ export default function citas() {
               <Form onSubmit={handleSubmitCreate} className="padreBtn">
                 <Form.Group className="mb-3  rounded p-4 inputForm">
                   <Form.Label>id_odontologo</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="id_odontologo "
+
+                  <FormGroup>
+                    <Form.Check
+                    type={"radio"}
                     name="id_odontologo"
-                    value={formValues.id_odontologo}
+                    value="1"
                     onChange={handleChange}
-                  />
+                    label={`Jack`}
+                    />
+                    <Form.Check
+                    type={"radio"}
+                    name="id_odontologo"
+                    value="2"
+                    onChange={handleChange}
+                    label={`Ribs`}
+                    />
+                    <Form.Check
+                    type={"radio"}
+                    name="id_odontologo"
+                    value="3"
+                    onChange={handleChange}
+                    label={`Antonio`}
+                    />
+                  </FormGroup>
                   <Form.Label>Día de la cita</Form.Label>
                   <Form.Control
                     type="date"
@@ -274,7 +308,7 @@ export default function citas() {
                   />
                   <Form.Label>Horario </Form.Label>
                   <Form.Control
-                    type="text"
+                    type="time"
                     placeholder="10:00:00 "
                     name="horario"
                     value={formValues.horario}
