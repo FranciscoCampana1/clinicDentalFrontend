@@ -41,11 +41,19 @@ export default function UserProfile() {
     setModifyProfile(true);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     updateProfile(authState.userToken, formValues);
+
   };
   const updateProfile = async (token, body) => {
-    const response = await userService.updateProfile(token, body);
+   try {
+     const response = await userService.updateProfile(token, body);
+     setModifyProfile(false)
+     getProfile(authState.userToken)
+   } catch (error) {
+    console.log(error)
+   }
   };
 
   const getProfile = async (token) => {
